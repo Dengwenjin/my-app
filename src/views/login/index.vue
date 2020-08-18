@@ -13,6 +13,7 @@
 
 <script>
 import { login } from '@/api/user.js'
+import { setUser } from '@/utils/auth.js'
 
 export default {
   name: 'LoginIndex',
@@ -28,7 +29,7 @@ export default {
     async toLogin () {
       try {
         const res = await login(this.user)
-        console.log(res)
+        setUser(res)
       } catch (error) {
         console.log(error)
       }
